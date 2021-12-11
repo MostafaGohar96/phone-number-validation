@@ -1,0 +1,84 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function filterText()
+    {
+        var val = $('#filterText').val();
+        if(val === "")
+            return;
+        if(val === "all")
+            clearFilter();
+        else
+
+            $('.country').each(function() {
+                $(this).parent().toggle($(this).text()=== val);
+            });
+
+    }
+    function clearFilter()
+    {
+        $('.filterText').val('');
+        $('.row').show();
+    }
+</script>
+
+<script>
+    function filterTextTerm()
+    {
+        var val = $('#filterTextTerm').val();
+        if(val === "")
+            return;
+        if(val === "all")
+            clearFilterTerm();
+        else
+
+            $('.state').each(function() {
+                $(this).parent().toggle($(this).text()=== val);
+            });
+
+    }
+    function clearFilterTerm()
+    {
+        $('.filterTextTerm').val('');
+        $('.row').show();
+    }
+</script>
+
+<table id ="myTable" class="table table-striped">
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Number </th>
+
+        <th> Country
+            <select id="filterText"  onchange='filterText()'>
+                <option disabled selected>Select</option>
+                <option value="all">All</option>
+                <option value="Cameroon">Cameroon</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Mozambique">Mozambique</option>
+                <option value="Uganda">Uganda</option>
+                <option value="Ethiopia">Ethiopia</option>
+            </select></th>
+        <th> State
+            <select id="filterTextTerm"  onchange='filterTextTerm()'>
+                <option disabled selected>Select</option>
+                <option value="all">All</option>
+                <option value="VALID">VALID</option>
+                <option value="NON_VALID">NON_VALID</option>
+            </select></th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${phones.empty}">
+        <td colspan="2"> No phones Available </td>
+    </tr>
+    <tr class="row" th:each="phone : ${phones}">
+        <td th:text="${phone.name}"></td>
+        <td th:text="${phone.number}"></td>
+        <td class="country" th:text="${phone.countryName}"></td>
+        <td class="state" th:text="${phone.state}"></td>
+    </tr>
+    <tr class='row'>
+    </tbody>
+</table>
