@@ -1,0 +1,24 @@
+<html>
+<table>
+    <thead>
+    <tr>
+        <th> Name </th>
+        <th> Number </th>
+        <th> Country</th>
+        <th> State </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${phones.empty}">
+        <td colspan="2"> No phones Available </td>
+    </tr>
+    <tr th:each="phone : ${phones}">
+        <td><span th:text="${phone.name}"> Name </span></td>
+        <td><span th:text="${phone.number}"> Number </span></td>
+        <td><span th:text="${phone.countryName}"> Country </span></td>
+        <td><span th:text="${phone.state}"> State </span></td>
+    </tr>
+    </tbody>
+</table>
+</html>

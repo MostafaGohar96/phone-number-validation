@@ -1,0 +1,123 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    function filterText()
+    {
+        var val = $('#filterText').val();
+        if(val === "")
+            return;
+        if(val === "all")
+            clearFilter();
+        else
+
+            $('.gender').each(function() {
+                $(this).parent().toggle($(this).text()=== val);
+            });
+
+    }
+    function clearFilter()
+    {
+        $('.filterText').val('');
+        $('.row').show();
+    }
+</script>
+
+<script>
+    function filterTextTerm()
+    {
+        var val = $('#filterTextTerm').val();
+        if(val === "")
+            return;
+        if(val === "all")
+            clearFilterTerm();
+        else
+
+            $('.term').each(function() {
+                $(this).parent().toggle($(this).text()=== val);
+            });
+
+    }
+    function clearFilterTerm()
+    {
+        $('.filterTextTerm').val('');
+        $('.row').show();
+    }
+</script>
+
+<table id ="myTable" class="table table-striped">
+
+    <thead>
+    <tr>
+        <th> First Name </th>
+        <th> Last Name </th>
+        <th> Age
+            <!--  <select id="filterText"  onchange='filterText()'>
+                    <option disabled selected>Select</option>
+                    <option value="all">All</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+              </select> --></th>
+        <th> Email </th>
+        <th> Gender
+            <select id="filterText"  onchange='filterText()'>
+                <option disabled selected>Select</option>
+                <option value="all">All</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select></th>
+        <th>Term
+            <select id="filterTextTerm"  onchange='filterTextTerm()'>
+                <option disabled selected>Select</option>
+                <option value="all">All</option>
+                <option value="Fall2018">Fall2018</option>
+                <option value="Spring2019">Spring2019</option>
+            </select></th>
+        <th> Enrolled </th>
+
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr class='row'>
+
+        <td>John</td>
+        <td>Smith</td>
+        <td class="age">15</td>
+        <td>123</td>
+        <td class="gender">Male</td>
+        <td class="term">Summer2017</td>
+        <td class="enrolled"> Fall2018</td>
+    </tr>
+    <tr class='row'>
+
+        <td>Jane</td>
+        <td>Doe</td>
+        <td class="age">16</td>
+        <td>456</td>
+        <td class="gender">Female</td>
+        <td class="term">Fall2018</td>
+        <td class="enrolled"> Fall2019</td>
+    </tr>
+    <tr class='row'>
+
+        <td>Bobby</td>
+        <td>Adams</td>
+        <td class="age">15</td>
+        <td>789</td>
+        <td class="gender">Male</td>
+        <td class="term">Spring2019</td>
+        <td class="enrolled"> Fall2018</td>
+    </tr>
+    <tr class='row'>
+
+        <td>Sarah</td>
+        <td>Lee</td>
+        <td class="age">15</td>
+        <td>456</td>
+        <td class="gender">Female</td>
+        <td class="term">Fall2018</td>
+        <td class="enrolled"> Fall2018</td>
+    </tr>
+    <tr class='row'>
+
+    </tbody>
+</table>
