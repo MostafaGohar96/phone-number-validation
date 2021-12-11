@@ -256,7 +256,7 @@
                                 <fileSet>
                                     <sourceFile>./src/main/resources/application-development.properties
                                     </sourceFile>
-                                    <destinationFile>${packaging.outputDirectory}/application.properties
+                                    <destinationFile>${packaging.outputDirectory}/application-development.properties
                                     </destinationFile>
                                 </fileSet>
                                 <fileSet>
